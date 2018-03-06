@@ -1,0 +1,7 @@
+<view class='zhuti'>
+<image class='avatar' src='/images/avatar/avatar-2.png'></image>
+<text class='one'>hellow丶everyone</text>
+<view>
+<text class='two' catchtap="onTapJump">开启小程序之旅</text>
+</view>
+</view>

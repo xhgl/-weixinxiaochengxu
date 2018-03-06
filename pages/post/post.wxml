@@ -1,0 +1,38 @@
+<view>
+<swiper autoplay='true' interval='2000' indicator-dots='true' indicator-color='red' indicator-active-color='white' circular='true' >
+<swiper-item>
+<image src='/images/post/post-1@text.jpg'></image>
+</swiper-item>
+<swiper-item>
+<image src='/images/post/post-2@text.jpg'></image>
+</swiper-item>
+<swiper-item>
+<image src='/images/post/post-3@text.jpg'></image>
+</swiper-item>
+</swiper>
+
+
+<!--文章章节  -->
+<block wx:for='{{postList}}' wx:for-item='item' wx:for-index='index' wx:key='index'>
+<view class='one' catchtap='li' data-post-id='{{item.postId}}'>
+<view class='two'>
+<image src='{{item.avatar}}'></image>
+<text>{{item.data}}</text>
+</view>
+<text class='con'>{{item.title}}</text>
+<image class='con_1' src='{{item.postImg}}'></image>
+<text class='con_2'>{{item.content}}</text>
+<view class='three'>
+<image src='/images/icon/wx_app_collect.png'></image>
+<text>{{item.collectionNum}}</text>
+<image src='/images/icon/wx_app_view.png'></image>
+<text>{{item.readingNum}}</text>
+<image src='/images/icon/wx_app_message.png'></image>
+<text>{{item.commentNum}}</text>
+</view>
+</view>
+</block>
+</view>
+
+
+

@@ -1,0 +1,38 @@
+<!--pages/post-detall/post-detall.wxml-->
+<view>
+  <image class='header' src='{{oppen.postImg}}'></image>
+  <text class='tit'>{{oppen.title}}</text>
+  <view class='btn'>
+    <view class='btn_1'>
+      <image class='btn_img' src='{{oppen.avatar}}'></image>
+      <text class='btn_text'>{{oppen.author}}</text>
+    </view>
+    <text class='date'>{{oppen.dateTime}}</text>
+  </view>
+  <text class='date_1'>{{oppen.detail}}</text>
+
+
+
+
+
+
+<view class='tool'>
+  <view class='tool-item' catchtap='onUpStatus'>
+    <image wx:if='{{oppen.upStatus}}' src='/images/icon/wx_app_liked.png'></image>
+    <image wx:else src='/images/icon/wx_app_like.png'></image>
+    <text>{{oppen.readingNum}}</text>
+  </view>
+
+  <view class='tool-item' catchtap='comment'>
+    <image src='/images/icon/wx_app_message.png'></image>
+    <text>{{oppen.commentNum}}</text>
+  </view>
+
+  <view class='tool-item' catchtap='onCollectionTap'>
+    <image wx:if='{{oppen.collectionStatus}}' src='/images/icon/wx_app_collected.png'></image>
+    <image wx:else src='/images/icon/wx_app_collect.png'></image>
+    <text>{{oppen.collectionNum}}</text>
+  </view>
+</view>
+
+</view>

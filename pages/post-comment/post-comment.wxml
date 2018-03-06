@@ -1,0 +1,95 @@
+<!--pages/post-comment/post-comment.wxml-->
+<view class='comment-detail-box'>
+  <view class='comment-main-box' catchtap='hideSendMoreBox'>
+    <view class='comment-title'>评论...........（共{{comments.length}}条)</view>
+    <block wx:for='{{comments}}' wx:for-item='item' wx:for-index='commIndex' wx:key='commIndex'>
+      <view class='comment-item'>
+        <!--评论头部  -->
+        <view class='comment-item-header'>
+          <view class='left-img'>
+            <image src='{{item.avatar}}'></image>
+          </view>
+          <view class='right-user'>
+            <text class='user-name'>{{item.username}}</text>
+          </view>
+        </view>
+        <!--评论主体部分  -->
+        <view class='comment-body'>
+          <!--评论文字  -->
+          <view class='comment-txt' wx:if='{{item.content.txt}}'>
+            <text>{{item.content.txt}}</text>
+          </view>
+          <!--评论语音  -->
+          <view class='comment-voice' wx:if='{{item.content.audio && item.content.audio.url}}'>
+            <view data-url='{{item.content.audio.url}}' class='comment-voice-item' catchtap='playAudio'>
+              <image src='/images/icon/wx_app_voice.png' class='voice-play'></image>
+              <text>{{item.content.audio.timeLen}}''</text>
+            </view>
+          </view>
+          <!--评论图片  -->
+          <view class='comment-img' wx:if='{{item.content.img.length!=0}}'>
+            <block wx:for='{{item.content.img}}' wx:for-item='img' wx:for-index='imgIndex' wx:key='imgIndex'>
+              <image src='{{img}}' mode='aspectFill' catchtap='previewImg' 
+              data-comment-index='{{commIndex}}' data-image-index='{{imgIndex}}'></image>
+            </block>
+          </view>
+        </view>
+        <!--评论时间  -->
+        <view class='comment-time'>{{item.create_time}}</view>
+      </view>
+    </block>
+  </view>
+
+  <!--评论输入区  -->
+  <view class='input-box'>
+    <view class='send-msg-box'>
+      <view class='input-item' hidden='{{isKeyboard}}'>
+        <image src='/images/icon/wx_app_keyboard.png' class='comment-icon keyboard-icon'
+        catchtap='switchType'
+       ></image>
+        <input class='input speak-input {{recording}}' value='按住 说话' disabled='disabled' catchtouchstart='recordStart' catchtouchend='recordEnd'
+        ></input>
+      </view>
+      <view class='input-item' hidden='{{!isKeyboard}}'>
+        <image class='comment-icon speak-icon' src='/images/icon/wx_app_speak.png' 
+         catchtap='switchType'></image>
+        <input class='input keyboard-input' placeholder='说点什么吧.....' 
+        bindinput='onInputValue' value='{{txt}}'/>
+      </view>
+      <image class='comment-icon add-icon' src='/images/icon/wx_app_add.png' catchtap='showSendMoreBox'></image>
+       <view class='submit-btn' catchtap='sendComment'>发送</view> 
+      <!--修改view为button，才能绑定和用户信息有关的属性(4)  -->
+       <!-- <button class='submit-btn' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>发送</button>    -->
+    </view>
+
+    <view class='send-more-box' hidden='{{!sendImageFlag}}'>
+      <!-- 选择图片和拍照的按钮 -->
+      <view class='send-more-btns-main'>
+        <view class='more-btn-item'>
+          <view class='more-btn-main' catchtap='chooseImages' data-type='album'>
+            <image src='/images/icon/wx_app_upload_image.png'></image>
+            <text>照片</text>
+          </view>
+        </view>
+        <view class='more-btn-item'>
+          <view class='more-btn-main' catchtap='chooseImages' data-type='camera'>
+            <image src='/images/icon/wx_app_camera.png'></image>
+            <text>拍照</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 显示选择的图片 -->
+      <view class='send-more-result-main' hidden='{{chooseImages.length==0}}'>
+        <block wx:for='{{chooseImages}}' wx:for-item='item' wx:for-index='index' wx:key='index'>
+          <view class='file-box'>
+            <view class='img-box'>
+              <image src='{{item}}' mode='aspectFill'></image>
+              <icon class='remove-icon' type='cancel' size='23' color='#b2b2b2' catchtap='deleteImage' data-index='{{index}}'></icon>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

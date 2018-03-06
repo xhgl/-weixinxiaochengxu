@@ -1,0 +1,281 @@
+/* pages/post-comment/post-comment.wxss */
+.comment-detail-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* overflow-y: hidden;  */
+}
+
+.comment-main-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 100rpx;
+  right: 0;
+}
+
+.comment-item {
+  margin: 20rpx 24rpx;
+  padding: 24rpx 24rpx 24rpx 0;
+  border-bottom: 1px solid #f2e7e1;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+  margin-bottom: 100rpx;
+}
+
+.comment-title {
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #222;
+  border-bottom: 1px solid #ccc;
+  margin-left: 24rpx;
+  padding: 8px 0;
+}
+
+.comment-item-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.comment-item-header .left-img image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+
+.comment-item-header .right-user {
+  margin-left: 30rpx;
+  line-height: 80rpx;
+}
+
+.comment-item-header .right-user text {
+  font-size: 26rpx;
+  color: #222;
+}
+
+/*主体  */
+
+.comment-body {
+  font-size: 26rpx;
+  /* line-height: 26rpx; */
+  color: #666;
+  padding: 10rpx 0;
+}
+
+.comment-txt text {
+  line-height: 50rpx;
+}
+
+.comment-img {
+  margin: 10rpx 0;
+}
+
+.comment-img image {
+  max-width: 32%;
+  margin: 6rpx;
+  width: 210rpx;
+  height: 210rpx;
+}
+
+.comment-voice-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 200rpx;
+  height: 64rpx;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 6rpx;
+}
+
+.comment-voice-item .voice-play {
+  height: 64rpx;
+  width: 64rpx;
+  margin-right: 60rpx;
+}
+
+.comment-voice-item text {
+  color: #222;
+  font-size: 24rpx;
+}
+
+.comment-time {
+  margin-top: 10rpx;
+  color: #ccc;
+  font-size: 24rpx;
+}
+
+/*******评论框 ***********/
+
+.input-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ccc;
+  border-top: 1px solid #d5d5d5;
+  min-height: 100rpx;
+  z-index: 1000;
+}
+
+.input-box .send-msg-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.input-box .input-item {
+  margin: 0 5rpx;
+  /* flex: 1; */
+  position: relative;
+  /* width: 0%; */
+  flex: 1;
+  /* display: flex;  此处不能设置为flex，否则hidden将失效！！！！ */
+}
+
+.input-box .input-item .comment-icon.speak-icon {
+  width: 62rpx;
+  height: 62rpx;
+}
+
+.input-box .input-item .comment-icon.keyboard-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.input-box .input-item .input {
+  border: 1rpx solid #d5d5d5;
+  background-color: #fff;
+  border-radius: 3px;
+  line-height: 65rpx;
+  margin-left: 10rpx;
+  font-size: 24rpx;
+  color: #838383;
+  padding: 0 2%;
+  /* display: inline-block; */
+  display: inline-block;
+  width: 80%;
+}
+/* 
+.input-box .input-item textarea {
+  background: #fff;
+  display: inline-block;
+  width: 80%;
+} */
+
+.input-box .input-item .keyboard-input {
+  /* width: auto; */
+  max-height: 500rpx;
+  height: 65rpx;
+  word-break: break-all;
+  overflow: auto;
+  /* flex: 1; */
+}
+
+.input-box .input-item .speak-input {
+  text-align: center;
+  color: #222;
+  height: 65rpx;
+}
+
+.input-box .input-item .recording{
+  background: #999;
+}
+
+.input-box .add-icon {
+  margin: 0 10rpx;
+  height: 65rpx;
+  width: 64rpx;
+  /* transform: scale(0.9); */
+}
+
+.input-box .submit-btn {
+  font-size: 24rpx;
+  margin-top: 5rpx;
+  margin-right: 8rpx;
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #4a6141;
+  border-radius: 5rpx;
+  color: #fff;
+  text-align: center;
+}
+
+/*******点击加号出现的send-more的样式************/
+
+.input-box .send-more-box {
+  margin: 20rpx 35rpx 35rpx 35rpx;
+}
+
+.send-more-box .more-btn-item {
+  display: inline-block;
+  width: 110rpx;
+  height: 145rpx;
+  margin-right: 35rpx;
+  text-align: center;
+}
+
+.more-btn-main {
+  width: 100%;
+  height: 60rpx;
+  text-align: center;
+  border: 1px solid #d5d5d5;
+  border-radius: 10rpx;
+  background: #fbfbfb;
+  margin: 0 auto;
+  padding: 25rpx 0;
+}
+
+.more-btn-main image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.send-more-box .more-btn-item text {
+  color: #888;
+  font-size: 24rpx;
+  margin: 20rpx 0;
+  display: block;
+}
+
+.send-more-result-main {
+  margin-top: 30rpx;
+}
+
+.send-more-result-main .file-box {
+  height: 160rpx;
+  width: 160rpx;
+  position: relative;
+  display: inline-block;
+  margin: 20rpx;
+}
+
+.send-more-result-main .remove-icon {
+  position: absolute;
+  right: 4rpx;
+  top: 4rpx;
+}
+
+.send-more-result-main .file-box .img-box {
+  width: 100%;
+  height: 100%;
+}
+
+.send-more-result-main image {
+  width: 100%;
+  height: 100%;
+}
+
+page {
+  background: #fff;
+}

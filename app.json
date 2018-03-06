@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/post/post",
+    "pages/welcome/welcome",
+    "pages/post-detall/post-detall",
+    "pages/post-comment/post-comment"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#FFA500"
+  }
+}
